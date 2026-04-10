@@ -1,0 +1,37 @@
+managed implementation in class zbp_i_lease_22ad039 unique;
+strict ( 2 );
+
+define behavior for ZI_LEASE_22AD039 alias LeaseContract
+persistent table zre_ls_22ad039
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  /* Let the framework generate the UUID automatically */
+  field ( numbering : managed, readonly ) LeaseUUID;
+
+  /* Prevent users from manually editing administrative fields */
+  field ( readonly ) CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, LocalLastChangedAt;
+
+  /* Map CDS View fields to the actual Database Table fields */
+  mapping for zre_ls_22ad039
+  {
+    LeaseUUID          = lease_uuid;
+    LeaseID            = lease_id;
+    TenantID           = tenant_id;
+    PropertyID         = property_id;
+    StartDate          = start_date;
+    EndDate            = end_date;
+    MonthlyRent        = monthly_rent;
+    CurrencyCode       = currency_code;
+    CreatedBy          = created_by;
+    CreatedAt          = created_at;
+    LastChangedBy      = last_changed_by;
+    LastChangedAt      = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

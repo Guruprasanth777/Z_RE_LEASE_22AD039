@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Lease 22AD039'
+define service ZUI_LEASE_22AD039_SRV {
+  expose ZC_LEASE_22AD039 as LeaseContract;
+}

@@ -1,0 +1,48 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: { typeName: 'Lease Contract',
+                typeNamePlural: 'Lease Contracts',
+                title: { type: #STANDARD, value: 'LeaseID' } }
+}
+annotate view ZC_LEASE_22AD039 with
+{
+  @UI.facet: [ { id:              'LeaseDetails',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'General Information',
+                 position:        10 } ]
+
+  @UI.hidden: true
+  LeaseUUID;
+
+  @UI: { lineItem:       [ { position: 10, label: 'Lease ID' } ],
+         identification: [ { position: 10, label: 'Lease ID' } ],
+         selectionField: [ { position: 10 } ] }
+  LeaseID;
+
+  @UI: { lineItem:       [ { position: 20, label: 'Tenant ID' } ],
+         identification: [ { position: 20, label: 'Tenant ID' } ],
+         selectionField: [ { position: 20 } ] }
+  TenantID;
+
+  @UI: { lineItem:       [ { position: 30, label: 'Property ID' } ],
+         identification: [ { position: 30, label: 'Property ID' } ] }
+  PropertyID;
+
+  @UI: { lineItem:       [ { position: 40, label: 'Start Date' } ],
+         identification: [ { position: 40, label: 'Start Date' } ] }
+  StartDate;
+
+  @UI: { lineItem:       [ { position: 50, label: 'End Date' } ],
+         identification: [ { position: 50, label: 'End Date' } ] }
+  EndDate;
+
+  @UI: { lineItem:       [ { position: 60, label: 'Monthly Rent' } ],
+         identification: [ { position: 60, label: 'Monthly Rent' } ] }
+  MonthlyRent;
+  
+  /* Hide the technical ETag field from the UI */
+  @UI.hidden: true
+  LocalLastChangedAt;
+}
